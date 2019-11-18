@@ -1,0 +1,106 @@
+import random
+class Person:
+    def __init__(self, firstname, lastname):
+        self.__first_name = firstname
+        self.__last_name = lastname
+
+    def get_first_name(self):
+        return self.__first_name
+    def set_first_name(self, firstname):
+        self.__first_name = firstname
+    def get_last_name(self):
+        return self.__last_name
+    def set_last_name(self, lastname):
+        self.__last_name = lastname
+    def get_name(self):
+        return self.get_first_name() + " " + self.get_last_name()
+
+class Customer(Person):
+    def __init__(self, firstname, lastname):
+        super().__init__(firstname, lastname)
+        self.__customer_id = ""
+        self.__customer_email = ""
+    def get_customer_id(self):
+        return self.__customer_id
+    def set_customer_id(self, custid):
+        self.__customer_id = custid
+    def get_customer_email(self):
+        return self.__customer_email
+    def set_customer_email(self, email):
+        self.__customer_email = email
+    def get_customer_info(self):
+        return self.get_name() + ", " + self.get_customer_email()
+
+class Employee(Person):
+    def __init__(self,firstname,lastname):
+        super().__init__(firstname,lastname)
+        self.emp_id = ""
+        self.emp_salary = 0.0
+
+    def get_emp_id(self):
+        return self.emp_id
+    def set_emp_id(self):
+        self.emp_id = random.randint(0,12342)
+    def get_emp_salary(self):
+        return self.emp_salary
+    def set_emp_salary(self,s):
+        self.emp_salary = s
+    def calculate_bonus(self):
+        return self.emp_salary * 0.20
+
+class Doctor(Employee):
+    def __init__(self,firstname,lastname):
+        super().__init__(firstname,lastname)
+        self.network = ""
+        self.yearsOfExp = ""
+
+    def get_network(self):
+        return self.network
+    def set_network(self, net):
+        self.network = net
+    def get_yearsOfExp(self):
+        return self.yearsOfExp        
+    def set_yearsOfExp(self, yop):
+        self.yearsOfExp = yop
+
+class Surgeon(Doctor):
+    def __init__(self,firstname,lastname):
+        super().__init__(firstname,lastname)
+        self.Specialty = ""
+        self.available_time = ""
+        self.accepting_patients = 0
+
+    def get_Specialty(self):
+        return self.Specialty
+    def set_Specialty(self, spec):
+        self.Specialty = spec
+    def get_available_time(self):
+        return self.available_time        
+    def set_available_time(self, time):
+        self.available_time = time
+    def get_accepting_patients(self):
+        return self.accepting_patients        
+    def set_accepting_patients(self, accepting):
+        self.accepting_patients = accepting    
+        
+class Pediatrician(Doctor):
+    def __init__(self,firstname,lastname):
+        super().__init__(firstname,lastname)
+        self.Specialty = ""
+        self.available_time = ""
+        self.accepting_patients = 0
+
+    def get_Specialty(self):
+        return self.Specialty
+    def set_Specialty(self, spec):
+        self.Specialty = spec
+    def get_available_time(self):
+        return self.available_time        
+    def set_available_time(self, time):
+        self.available_time = time         
+    def get_accepting_patients(self):
+        return self.accepting_patients        
+    def set_accepting_patients(self, accepting):
+        self.accepting_patients = accepting     
+
+
